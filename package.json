@@ -1,6 +1,7 @@
 {
   "name": "gq-leaderboard",
   "version": "0.1.0",
+  "homepage": "https://tonyhazama.github.io/math-quiz",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

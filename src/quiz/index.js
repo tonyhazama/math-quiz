@@ -30,6 +30,12 @@ export default function QuizComponent(props) {
     }
   };
 
+  const handleEnter = (ev) => {
+    if (ev.code === 'Enter' && !!answers[currentQ]) {
+      isLastQuestion ? handleFinish() : handleNext();
+    }
+  };
+
   const handleOutOfTime = () => {
     let q = questions.splice(0, currentQ);
     let a = answers.splice(0, currentQ);
@@ -52,6 +58,7 @@ export default function QuizComponent(props) {
       maxWidth: '600px',
       margin: 'auto'
       }}
+      onKeyPress={handleEnter}
     >
       <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
         <div></div>

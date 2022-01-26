@@ -16,14 +16,10 @@ export default function App() {
     {n: 100, t: 5},
   ];
   
-  useEffect(_ => {
-    initiateQuiz(0, 2);
-    handleFinish(
-
-      [{"key":0,"a":1,"b":10,"o":"-","answer":-9,"userAnswer":1},{"key":1,"a":5,"b":7,"o":"+","answer":12,"userAnswer":1},{"key":2,"a":3,"b":6,"o":"-","answer":-3,"userAnswer":1},{"key":3,"a":2,"b":6,"o":"-","answer":-4,"userAnswer":1},{"key":4,"a":10,"b":1,"o":"+","answer":11,"userAnswer":1},{"key":0,"a":1,"b":10,"o":"-","answer":-9,"userAnswer":1},{"key":1,"a":5,"b":7,"o":"+","answer":12,"userAnswer":1},{"key":2,"a":3,"b":6,"o":"-","answer":-3,"userAnswer":1},{"key":3,"a":2,"b":6,"o":"-","answer":-4,"userAnswer":1},{"key":4,"a":10,"b":1,"o":"+","answer":11,"userAnswer":1},{"key":0,"a":1,"b":10,"o":"-","answer":-9,"userAnswer":1},{"key":1,"a":5,"b":7,"o":"+","answer":12,"userAnswer":1},{"key":2,"a":3,"b":6,"o":"-","answer":-3,"userAnswer":1},{"key":3,"a":2,"b":6,"o":"-","answer":-4,"userAnswer":1},{"key":4,"a":10,"b":1,"o":"+","answer":11,"userAnswer":1},{"key":0,"a":1,"b":10,"o":"-","answer":-9,"userAnswer":1},{"key":1,"a":5,"b":7,"o":"+","answer":12,"userAnswer":1},{"key":2,"a":3,"b":6,"o":"-","answer":-3,"userAnswer":1},{"key":3,"a":2,"b":6,"o":"-","answer":-4,"userAnswer":1},{"key":4,"a":10,"b":1,"o":"+","answer":11,"userAnswer":1}]
-      
-      );
-  }, []);
+  // useEffect(_ => {
+  //   initiateQuiz(0, 2);
+  //   handleFinish([{"key":0,"a":10,"b":9,"o":"+","answer":19,"userAnswer":19},{"key":1,"a":5,"b":6,"o":"+","answer":11,"userAnswer":11},{"key":2,"a":5,"b":5,"o":"-","answer":0,"userAnswer":0},{"key":3,"a":8,"b":6,"o":"+","answer":14,"userAnswer":1},{"key":4,"a":8,"b":4,"o":"-","answer":4,"userAnswer":4}]);
+  // }, []);
 
 
   const initiateQuiz = (difficulty, mode) => {

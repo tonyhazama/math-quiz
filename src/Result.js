@@ -1,9 +1,11 @@
-import { Button, Col, Row, Table } from "antd";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons/lib/icons";
+import { Button, Col, Row, Table, Tag } from "antd";
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 
 export function Result (props = {result: []}) {
   const [data, setData] = useState([{}]);
+  const [score, setScore] = useState(null);
   const columns = [
     {
       title: '#',
@@ -26,6 +28,7 @@ export function Result (props = {result: []}) {
       title: '',
       dataIndex: 'isCorrect',
       key: 'isCorrect',
+      render: tags => (<Tag color={tags ? 'green' : 'red'}>{tags ? <CheckOutlined />: <CloseOutlined />}</Tag>)
     },
   ];
 
@@ -38,16 +41,22 @@ export function Result (props = {result: []}) {
       number: i+1,
       question: `${c.a} ${c.o} ${c.b} = ${c.answer}`,
       answer: c.userAnswer,
-      isCorrect: c.answer === c.userAnswer ? 'Correct': 'Wrong'
+      isCorrect: c.answer === c.userAnswer
     }));
     setData(col);
+    setScore(col.filter(e => e.isCorrect).length);
   };
   
   return (
     <>
       <Row style={{flexDirection: 'column', alignItems: 'center'}}>
         <Col style={{fontSize: '1.6em', fontWeight: 'bold', marginBottom: '2em'}}>Result</Col>
-        <Table dataSource={data} columns={columns} pagination={false} style={{marginBottom: '2em'}} />
+        <Table dataSource={data} columns={columns} pagination={false} style={{marginBottom: '2em'}} footer={_ => (
+          score !== null && <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 'bold'}}>
+            <div>Score</div>
+            <div>{score} / {data.length}</div>
+          </div>
+        )} />
         {/* {result.map((r, i) => {
           const {a, o, b, answer, userAnswer} = r;
           return (
